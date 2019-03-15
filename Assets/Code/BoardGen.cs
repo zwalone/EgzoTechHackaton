@@ -12,18 +12,22 @@ public class BoardGen : MonoBehaviour
     GameObject blockPrefab;
 
     [SerializeField]
-    float min_length = 0f;
+    float min_length = 3f;
     [SerializeField]
     float max_length = 10f;
 
     [SerializeField]
     int lastLaneNumber = 5;
 
+    [SerializeField]
+    float minConnectivityZone = 3f;
 
     float time = 0f;
-    float spawn_time = 2f;
+    float spawn_time = 1f;
 
-    GameObject lastSpawnedLane;
+    float spawnOriginZ = 20f;
+
+    GameObject lastSpawnedBlock;
 
     // Start is called before the first frame update
     void Start()
@@ -49,22 +53,34 @@ public class BoardGen : MonoBehaviour
         //first, choose random lane
         int lane_num = UnityEngine.Random.Range(0, lastLaneNumber-1);
         Transform lane = laneContainer.transform.GetChild(lane_num);
-       
+
+
+        //Then instantiate prefab block and set it's length
         GameObject block = Instantiate(blockPrefab);
         block.transform.SetParent(lane);
-        //Set the middle forward of a lane
-        block.transform.localPosition = new Vector3(0, 0, 10);
+        //spawn block at desired origin point
+        block.transform.localPosition = new Vector3(0, 0.3f, spawnOriginZ);
+
         //Randomize length of a block
         float length = UnityEngine.Random.Range(min_length, max_length);
-        block.transform.localScale = new Vector3(1,1, length);
+        block.transform.localScale = new Vector3(1, 1, length);
+
+
+        //Determine front and end of the block
+        Vector3 front = new Vector3(0, 0, transform.position.z - (length/2));
+        Vector3 end = new Vector3(0, 0, transform.position.z + (length/2));
 
 
 
-        //Update
-        //Task: make interconnected blocks
+        //Assure connectivity bettween the blocks
+        //if the blocks are on diffrent lanes determine 
+        if(lastSpawnedBlock != null)
+        { 
+        
+        }
 
-        //first get last generated block, and read it's border position
-        //randomize connectivity length
+
+
 
 
 
