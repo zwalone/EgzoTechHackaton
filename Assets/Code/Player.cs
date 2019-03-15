@@ -8,9 +8,13 @@ public class Player : MonoBehaviour
     //====== SINGLETON ======
     public static Player instance = null;
 
-    public long score = 0;
 
-
+    long score = 0;
+    public long Score
+    { 
+        get { return score; }
+        set { score = value;  }
+    }
 
 
     // Start is called before the first frame update
@@ -25,4 +29,6 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    
 }

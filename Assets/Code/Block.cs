@@ -9,6 +9,7 @@ public class Block : MonoBehaviour
 
     
     public float length;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,13 @@ public class Block : MonoBehaviour
     }
 
 
+    void FixedUpdate()
+    {
+        transform.Translate(new Vector3(0,0,-0.001f));
+    }
+
+
+
     //Play an animation that is triggered on collision with player object
     void PlayEffect()
     { 
@@ -32,7 +40,7 @@ public class Block : MonoBehaviour
     { 
         if(c.gameObject.tag == "Player")
         {
-            Player.instance.score++;
+            Player.instance.Score++;
             PlayEffect();
         }
     }
