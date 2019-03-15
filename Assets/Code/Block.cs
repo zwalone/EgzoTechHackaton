@@ -6,6 +6,9 @@ using UnityEngine;
 //script describing behaviour of falling block
 public class Block : MonoBehaviour
 {
+
+    
+    public float length;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +28,9 @@ public class Block : MonoBehaviour
     
     }
 
-    void OnCollisionEnter(Collision c)
+    void OnTriggerStay(Collider c)
     { 
-        if(c.collider.gameObject.tag == "PlayerObject")
+        if(c.gameObject.tag == "Player")
         {
             Player.instance.score++;
             PlayEffect();

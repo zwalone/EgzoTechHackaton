@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 
     //====== SINGLETON ======
-    public static Player instance;
+    public static Player instance = null;
 
     public long score = 0;
 
@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(instance == null)
         instance = this;
     }
 
