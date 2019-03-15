@@ -10,10 +10,13 @@ public class Block : MonoBehaviour
     
     public float length;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject particle = GameObject.FindGameObjectWithTag("ParticlePlayer");
+        particle.GetComponent<ParticleSystem>().enableEmission = false;
     }
 
     // Update is called once per frame
@@ -35,33 +38,38 @@ public class Block : MonoBehaviour
     { 
     
     }
-    //
+    
     private void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == "Player")
         {
+
+            GameObject particle = GameObject.FindGameObjectWithTag("ParticlePlayer");
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            particle.transform.position = player.transform.position;
+            particle.GetComponent<ParticleSystem>().enableEmission = true;
         }
-        }
+    }
 
     private void OnTriggerExit(Collider c)
     {
         if (c.gameObject.tag == "Player")
         {
-        }
-    }
-    //
-    void OnTriggerStay(Collider c)
-    { 
-        if(c.gameObject.tag == "Player")
-        {
-            Debug.Log("Ok");
-            Player.instance.Score++;
-            PlayEffect();
             GameObject particle = GameObject.FindGameObjectWithTag("ParticlePlayer");
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-
             particle.transform.position = player.transform.position;
-            particle.GetComponent<ParticleSystem>().Emit(0);
+            particle.GetComponent<ParticleSystem>().enableEmission = false;
+        }
+    }
+    
+  
+
+    void OnTriggerStay(Collider other)
+    { 
+        if(other.gameObject.tag == "Player")
+        {
+            Player.instance.Score++;
+            PlayEffect();
         }
     }
 }
