@@ -10,8 +10,18 @@ public class BoardGen : MonoBehaviour
     LaneContainer laneContainer;
     [SerializeField]
     GameObject blockPrefab;
-    int lastLaneNumber = 0;
 
+    [SerializeField]
+    float min_length = 0f;
+    [SerializeField]
+    float max_length = 10f;
+
+    [SerializeField]
+    int lastLaneNumber = 5;
+
+
+    float time = 0f;
+    float spawn_time = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +32,32 @@ public class BoardGen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        time += Time.deltaTime;
+        if(time >= spawn_time)
+        {
+            GenerateNewBlock();
+            time = 0;
+        }
     }
 
 
     //Generates random block on random lane
     void GenerateNewBlock()
-    { 
+    {
         //first, choose random lane
+        int lane_num = UnityEngine.Random.Range(0, lastLaneNumber-1);
+        Transform lane = laneContainer.transform.GetChild(lane_num);
+
+        GameObject block = Instantiate(blockPrefab);
+        block.transform.SetParent(lane);
+        //Set the middle forward of a lane
+        block.transform.localPosition = new Vector3(0, 0, 10);
+        //Randomize length of a block
+        float length = UnityEngine.Random.Range(min_length, max_length);
+        block.transform.localScale = new Vector3(1,1, length);
+
+
+
 
     }
 }
