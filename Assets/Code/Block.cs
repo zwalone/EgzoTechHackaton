@@ -36,9 +36,9 @@ public class Block : MonoBehaviour
     
     }
 
-    void OnTriggerStay(Collider c)
+    void OnTriggerStay(Collider other)
     { 
-        if(c.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
             Player.instance.Score++;
             PlayEffect();
