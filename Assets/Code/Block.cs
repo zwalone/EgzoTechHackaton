@@ -15,7 +15,7 @@ public class Block : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,14 +37,33 @@ public class Block : MonoBehaviour
     { 
     
     }
+    
+    private void OnTriggerEnter(Collider c)
+    {
+        if (c.gameObject.tag == "Player")
+        {
+           // Player.instance.GetComponent<ParticleSystem>().enableEmission = true;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider c)
+    {
+        if (c.gameObject.tag == "Player")
+        {
+            //Player.instance.GetComponent<ParticleSystem>().enableEmission = false;
+        }
+    }
+    
+  
 
     void OnTriggerStay(Collider other)
     { 
-
         if(other.gameObject.tag == "Player")
         {
             Player.instance.Score++;
             PlayEffect();
+            Player.instance.GetComponent<ParticleSystem>().Emit(10);
         }
     }
 }
