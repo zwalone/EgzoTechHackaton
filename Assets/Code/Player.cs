@@ -7,10 +7,13 @@ public class Player : MonoBehaviour
 
     //====== SINGLETON ======
     public static Player instance = null;
+    long score = 0;
 
-    public long score = 0;
-
-
+    public long Score
+    { 
+        get { return score; }
+        set { score = value; }
+    }
 
 
     // Start is called before the first frame update

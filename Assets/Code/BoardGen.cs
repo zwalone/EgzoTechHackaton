@@ -8,7 +8,10 @@ public class BoardGen : MonoBehaviour
 {
     [SerializeField]
     LaneContainer laneContainer;
+    [SerializeField]
+    GameObject blockPrefab;
     int lastLaneNumber = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,6 @@ public class BoardGen : MonoBehaviour
     //Generates random block on random lane
     void GenerateNewBlock()
     { 
-        
+            
     }
 }
