@@ -23,6 +23,8 @@ public class BoardGen : MonoBehaviour
     float time = 0f;
     float spawn_time = 2f;
 
+    GameObject lastSpawnedLane;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +49,7 @@ public class BoardGen : MonoBehaviour
         //first, choose random lane
         int lane_num = UnityEngine.Random.Range(0, lastLaneNumber-1);
         Transform lane = laneContainer.transform.GetChild(lane_num);
-
+       
         GameObject block = Instantiate(blockPrefab);
         block.transform.SetParent(lane);
         //Set the middle forward of a lane
