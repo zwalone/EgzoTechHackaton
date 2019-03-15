@@ -58,6 +58,13 @@ public class BoardGen : MonoBehaviour
 
 
 
+        //Update
+        //Task: make interconnected blocks
+
+        //first get last generated block, and read it's border position
+        //randomize connectivity length
+
+
 
     }
 }
