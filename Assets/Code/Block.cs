@@ -40,6 +40,7 @@ public class Block : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     { 
+
         if(other.gameObject.tag == "Player")
         {
             Player.instance.Score++;
