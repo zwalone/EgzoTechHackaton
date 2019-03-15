@@ -15,8 +15,7 @@ public class Block : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject particle = GameObject.FindGameObjectWithTag("ParticlePlayer");
-        particle.GetComponent<ParticleSystem>().enableEmission = false;
+
     }
 
     // Update is called once per frame
@@ -43,11 +42,8 @@ public class Block : MonoBehaviour
     {
         if (c.gameObject.tag == "Player")
         {
+           // Player.instance.GetComponent<ParticleSystem>().enableEmission = true;
 
-            GameObject particle = GameObject.FindGameObjectWithTag("ParticlePlayer");
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            particle.transform.position = player.transform.position;
-            particle.GetComponent<ParticleSystem>().enableEmission = true;
         }
     }
 
@@ -55,10 +51,7 @@ public class Block : MonoBehaviour
     {
         if (c.gameObject.tag == "Player")
         {
-            GameObject particle = GameObject.FindGameObjectWithTag("ParticlePlayer");
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            particle.transform.position = player.transform.position;
-            particle.GetComponent<ParticleSystem>().enableEmission = false;
+            //Player.instance.GetComponent<ParticleSystem>().enableEmission = false;
         }
     }
     
@@ -70,6 +63,7 @@ public class Block : MonoBehaviour
         {
             Player.instance.Score++;
             PlayEffect();
+            Player.instance.GetComponent<ParticleSystem>().Emit(10);
         }
     }
 }
