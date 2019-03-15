@@ -7,12 +7,13 @@ public class Player : MonoBehaviour
 
     //====== SINGLETON ======
     public static Player instance = null;
-    long score = 0;
 
+
+    long score = 0;
     public long Score
     { 
         get { return score; }
-        set { score = value; }
+        set { score = value;  }
     }
 
 
@@ -28,4 +29,6 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    
 }

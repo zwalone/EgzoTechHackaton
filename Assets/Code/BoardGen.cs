@@ -29,6 +29,7 @@ public class BoardGen : MonoBehaviour
     //Generates random block on random lane
     void GenerateNewBlock()
     { 
-            
+        //first, choose random lane
+
     }
 }
