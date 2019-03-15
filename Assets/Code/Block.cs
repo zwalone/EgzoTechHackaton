@@ -35,13 +35,33 @@ public class Block : MonoBehaviour
     { 
     
     }
+    //
+    private void OnTriggerEnter(Collider c)
+    {
+        if (c.gameObject.tag == "Player")
+        {
+        }
+        }
 
+    private void OnTriggerExit(Collider c)
+    {
+        if (c.gameObject.tag == "Player")
+        {
+        }
+    }
+    //
     void OnTriggerStay(Collider c)
     { 
         if(c.gameObject.tag == "Player")
         {
+            Debug.Log("Ok");
             Player.instance.Score++;
             PlayEffect();
+            GameObject particle = GameObject.FindGameObjectWithTag("ParticlePlayer");
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            particle.transform.position = player.transform.position;
+            particle.GetComponent<ParticleSystem>().Emit(0);
         }
     }
 }
