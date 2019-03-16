@@ -57,9 +57,6 @@ public class Block : MonoBehaviour
     }
 
 
-
-
-
     private void OnTriggerExit(Collider C)
     {
         //Player.instance.GetComponentInChildren<Light>().enabled = false;
@@ -105,7 +102,9 @@ public class Block : MonoBehaviour
                 lightplayer.GetComponent<Light>().color = ConvertHexToDec.GetColorfromString("CB16BF");
                 this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("CB16BF");
             }
-            lastColour = this.GetComponentInChildren<SpriteRenderer>().color;
+            LastColour = this.GetComponentInChildren<SpriteRenderer>().color;
+            gameObject.GetComponentInChildren<SpriteRenderer>().material.SetColor("_MKGlowColor", LastColour);
+          
         }
     }
 
