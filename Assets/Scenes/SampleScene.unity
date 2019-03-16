@@ -15099,8 +15099,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: 384d970866dabd149930739205d689d6, type: 3}
-  - {fileID: 8300000, guid: d93cf4dd3fbfc954db747302c09e1995, type: 3}
+  - {fileID: 8300000, guid: ade95b8ddff6aea47a5c812530314c37, type: 3}
+  - {fileID: 8300000, guid: 80421a2c9dddfa5459d7691276f7a72f, type: 3}
 --- !u!4 &856284307
 Transform:
   m_ObjectHideFlags: 0
