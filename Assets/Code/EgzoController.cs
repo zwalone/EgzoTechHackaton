@@ -7,11 +7,17 @@ public class EgzoController : MonoBehaviour
 {
     //singleton
     public static EgzoController instance;
+    public bool alive = false;
     WebSocket socket;
 
     //Input value from WebSocketConnection
     public Axis axis;
 
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
 
     void Start()
@@ -20,16 +26,11 @@ public class EgzoController : MonoBehaviour
         {
             instance = this;
             axis = new Axis();
-
         }
-       EstablishConnection();
     }
 
     void EstablishConnection()
     {
-
-       
-
         if (socket == null)
         {
             socket = new WebSocket("ws://192.168.102.219:1234/bG9zb3NpZQ==");
@@ -39,18 +40,24 @@ public class EgzoController : MonoBehaviour
             socket.OnError += OnError;
             socket.OnMessage += OnDataReceived;
         }
-
-
         socket.Connect();
-
-
     }
 
-    void EstablishConnection(string address)
+    public void EstablishConnection(string address)
     {
+        if (socket.IsAlive == true)
+        {
+            socket.Close();
+        }
+
         if (socket == null)
         {
             socket = new WebSocket(address);
+            //after connection is established, go and link events
+            socket.OnOpen += OnConnectionOpened;
+            socket.OnClose += OnConnectionClosed;
+            socket.OnError += OnError;
+            socket.OnMessage += OnDataReceived;
         }
         socket.Connect();
     }
@@ -58,11 +65,13 @@ public class EgzoController : MonoBehaviour
     void OnConnectionClosed(object sender, EventArgs e)
     {
         Debug.Log("Connection opened");
+        alive = true;
     }
 
     void OnConnectionOpened(object sender, EventArgs e)
     {
         Debug.Log("Connection closed");
+        alive = false;
     }
 
     void OnError(object sender, ErrorEventArgs e)
@@ -84,12 +93,19 @@ public class EgzoController : MonoBehaviour
     {
         float val;
         public float Value
-        { 
+        {
             get { return val; }
-            set { val = value + 1;}
+            set { val = value + 1; }
         }
     }
 
+
+    void OnApplicationQuit()
+    {
+        //safely close connection 
+        if (socket != null)
+            socket.Close();
+    }
 
 
 }

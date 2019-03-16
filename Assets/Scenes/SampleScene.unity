@@ -4929,7 +4929,7 @@ PrefabInstance:
     - target: {fileID: 861160702436120990, guid: 64b7c57206620654b8bbb1eedf05e796,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 861160702436120990, guid: 64b7c57206620654b8bbb1eedf05e796,
         type: 3}
@@ -5116,6 +5116,7 @@ MonoBehaviour:
   num_lanes: 5
   lanePrefab: {fileID: 6860794187382857044, guid: 6d715407a0ad3170cb65043a97af13c8,
     type: 3}
+
 --- !u!1 &369760609
 GameObject:
   m_ObjectHideFlags: 0
@@ -5238,6 +5239,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!1 &501576995
 GameObject:
   m_ObjectHideFlags: 0
@@ -14978,7 +14980,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &734989395
 Light:
@@ -29763,7 +29765,7 @@ RectTransform:
   m_LocalScale: {x: 2.2587347, y: 2.2587347, z: 2.259864}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
