@@ -37,4 +37,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        transform.Rotate(Vector3.right, 1f);
+    }
+
 }
