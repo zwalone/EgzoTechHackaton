@@ -69,17 +69,15 @@ public class BoardGen : MonoBehaviour
         if (b != null)
         {
             //determine lane direction and Connection Additive
-            float connection_additive = b.transform.localPosition.z + UnityEngine.Random.Range(2f, b.GetComponent<Block>().length/2);
+            float connection_additive = b.transform.localPosition.z + UnityEngine.Random.Range(3f, (b.GetComponent<Block>().length/2)-2f);
             //two first ifs check border conditions, last one else randomizes driection (middle cases)
             if (b.GetComponent<Block>().laneNum == 0)
             {
                 //if on far left go right
                 GenerateNewBlock(1, connection_additive);
-
             }
             else if (b.GetComponent<Block>().laneNum >= lastLaneNumber)
             {
-
                 GenerateNewBlock(lastLaneNumber - 1, connection_additive);
             }
             else
