@@ -73,7 +73,7 @@ public class Block : MonoBehaviour
     {
         if (c.gameObject.tag == "Player")
         {
-            Player.instance.GetComponent<AudioSource>().Play();
+            //Player.instance.GetComponent<AudioSource>().Play();
             GetComponent<Animator>().Play("Press");
             if (laneNum == 0)
             {
