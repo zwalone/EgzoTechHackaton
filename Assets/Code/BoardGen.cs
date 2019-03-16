@@ -44,7 +44,6 @@ public class BoardGen : MonoBehaviour
     //Generates random block on random lane
     void GenerateNewBlock(int lane_num, float connection_additive)
     {
-        Debug.Log(lane_num);
         Transform lane = laneContainer.transform.GetChild(lane_num);
 
 
