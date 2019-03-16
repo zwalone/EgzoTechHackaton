@@ -22,6 +22,9 @@ public class Block : MonoBehaviour
         end = new Vector3(0, 0, transform.localPosition.z + (length / 2));
     }
 
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -42,15 +45,29 @@ public class Block : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider c)
+    {
+
+    }
+
+    private void OnTriggerExit(Collider c)
+    {
+        if (c.gameObject.tag == "Player")
+        {
+            //Player.instance.GetComponent<ParticleSystem>().enableEmission = false;
+        }
+    }
+
 
 
     void OnTriggerStay(Collider other)
     {
-
         if (other.gameObject.tag == "Player")
         {
             Player.instance.Score++;
             PlayEffect();
+            Player.instance.GetComponent<ParticleSystem>().Emit(10);
         }
     }
 }
+
