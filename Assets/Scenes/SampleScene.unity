@@ -5307,7 +5307,7 @@ RectTransform:
   m_GameObject: {fileID: 916700440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.3663, y: 2.3663, z: 2.3663}
   m_Children:
   - {fileID: 1618878921}
   m_Father: {fileID: 933484272}
@@ -5315,7 +5315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 90.1, y: 0}
   m_SizeDelta: {x: 245.6, y: 64.3}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &916700442
@@ -5560,14 +5560,14 @@ RectTransform:
   m_GameObject: {fileID: 1618878920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95454293, y: 0.95454293, z: 0.9550202}
   m_Children: []
   m_Father: {fileID: 916700441}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_AnchoredPosition: {x: -19.2, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618878922
@@ -5603,7 +5603,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 'Wynik: 0'
 --- !u!222 &1618878923
 CanvasRenderer:
   m_ObjectHideFlags: 0

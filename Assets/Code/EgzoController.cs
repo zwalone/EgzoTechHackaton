@@ -64,12 +64,17 @@ public class EgzoController : MonoBehaviour
         //retreive JSON message
         string JSONraw = e.Data;
         axis = JsonConvert.DeserializeObject<Axis>(JSONraw);
-        Debug.Log(axis.value);
+        Debug.Log(axis.Value);
     }
 
     public class Axis
     {
-        public float value;
+        float val;
+        public float Value
+        { 
+            get { return val; }
+            set { val = value + 1;}
+        }
     }
 
 

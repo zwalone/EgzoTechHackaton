@@ -45,8 +45,6 @@ public class Block : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(new Vector3(0, 0, -0.1f));
-        transform.Rotate(Vector3.up, 0.01f);
-        
     }
 
 
