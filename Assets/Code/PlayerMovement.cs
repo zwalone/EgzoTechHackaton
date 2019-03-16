@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
                 position.x += 0.5f;
 
                 if (position.x > 2.5f)
-                    position.x--;
+                    position.x -= 0.5f;
                 this.transform.position = position;
             }
 
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
                 position.x -= 0.5f;
 
                 if (position.x < 0f)
-                    position.x++;
+                    position.x += 0.5f;
 
                 this.transform.position = position;
             }
