@@ -50,10 +50,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
+    private void FixedUpdate()
+    {
+        transform.Rotate(Vector3.right, 1f);
+    }
 
     float ParseEgzoToLane()
     {
         return (float)Math.Round(EgzoController.instance.axis.Value * 2, MidpointRounding.AwayFromZero) / 2;
     }
-}
+}e
