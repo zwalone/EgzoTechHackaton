@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 position = this.transform.position;
             position.x += 0.5f;
 
-            if (position.x > 2.0f)
+            if (position.x > 2.5f)
                 position.x--;
             else
                 this.transform.position = position;
