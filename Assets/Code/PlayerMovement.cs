@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float platformSize = 3.0f;
 
-    bool egzoControl = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(egzoControl == false)
+        if (EgzoController.instance.alive == false)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
 
                 if (position.x > 2.5f)
                     position.x--;
-
                 this.transform.position = position;
             }
 
@@ -42,15 +41,12 @@ public class PlayerMovement : MonoBehaviour
                     position.x++;
 
                 this.transform.position = position;
-
             }
         }
 
 
-        if (egzoControl == true)
+        if (EgzoController.instance.alive == true)
         {
-
-
             //  transform.position = new Vector3(ParseEgzoToLane(), transform.position.y, transform.position.z);
             transform.position = new Vector3(EgzoController.instance.axis.Value, transform.position.y, transform.position.z);
         }
