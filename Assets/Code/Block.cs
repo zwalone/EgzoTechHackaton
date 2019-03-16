@@ -15,7 +15,6 @@ public class Block : MonoBehaviour
     public Vector3 front;
     public Vector3 end;
 
-   
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +28,7 @@ public class Block : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+
     }
 
 
@@ -45,41 +44,20 @@ public class Block : MonoBehaviour
     {
 
     }
-    private void OnTriggerExit(Collider C)
-    {
-        this.transform.Find("Representation").position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
-        this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("FFFFFF");
-        GetComponent<Animator>().Play("Return");
-    }
+
     private void OnTriggerEnter(Collider c)
+    {
+
+    }
+
+    private void OnTriggerExit(Collider c)
     {
         if (c.gameObject.tag == "Player")
         {
-
-            // this.transform.Find("Representation").position = new Vector3(this.transform.position.x, 0f, this.transform.position.z);
-            GetComponent<Animator>().Play("Press");
-            if (laneNum == 0)
-            {
-                this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("07A42E");
-            }
-            if (laneNum == 1)
-            {
-                this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("7DA40C");
-            }
-            if (laneNum == 2)
-            {
-                this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("D76A24");
-            }
-            if (laneNum == 3)
-            {
-                this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("D7184B");
-            }
-            if (laneNum == 4)
-            {
-                this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("CB16BF");
-            }
+            //Player.instance.GetComponent<ParticleSystem>().enableEmission = false;
         }
     }
+
 
 
     void OnTriggerStay(Collider other)
@@ -88,10 +66,8 @@ public class Block : MonoBehaviour
         {
             Player.instance.Score++;
             PlayEffect();
-            Player.instance.GetComponent<ParticleSystem>().Emit(4);
+            Player.instance.GetComponent<ParticleSystem>().Emit(10);
         }
     }
-
-   
 }
 

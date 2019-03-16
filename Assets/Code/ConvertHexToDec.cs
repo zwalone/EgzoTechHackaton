@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ConvertHexToDec
+public class ConvertHexToDec : MonoBehaviour
 {
-    private static int HexToDec(string hex)
+    private int HexToDec(string hex)
     {
         int dec = System.Convert.ToInt32(hex, 16);
         return dec;
     }
 
-    private static float HexToFloatNormalized(string hex)
+    private float HexToFloatNormalized(string hex)
     {
         return HexToDec(hex) / 255f;
     }
-    public static Color GetColorfromString(string hexstring)
+    public Color GetColorfromString(string hexstring)
     {
         float red = HexToFloatNormalized(hexstring.Substring(0, 2));
         float green = HexToFloatNormalized(hexstring.Substring(2, 2));
