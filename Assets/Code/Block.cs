@@ -15,6 +15,7 @@ public class Block : MonoBehaviour
     public Vector3 front;
     public Vector3 end;
 
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,7 @@ public class Block : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      
     }
 
 
@@ -48,13 +49,15 @@ public class Block : MonoBehaviour
     {
         this.transform.Find("Representation").position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
         this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("FFFFFF");
+        GetComponent<Animator>().Play("Return");
     }
     private void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == "Player")
         {
-            
-            this.transform.Find("Representation").position = new Vector3(this.transform.position.x, 0f, this.transform.position.z);
+
+            // this.transform.Find("Representation").position = new Vector3(this.transform.position.x, 0f, this.transform.position.z);
+            GetComponent<Animator>().Play("Press");
             if (laneNum == 0)
             {
                 this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("07A42E");
@@ -88,5 +91,7 @@ public class Block : MonoBehaviour
             Player.instance.GetComponent<ParticleSystem>().Emit(4);
         }
     }
+
+   
 }
 
