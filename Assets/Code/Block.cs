@@ -42,8 +42,27 @@ public class Block : MonoBehaviour
     {
         if (c.gameObject.tag == "Player")
         {
-           // Player.instance.GetComponent<ParticleSystem>().enableEmission = true;
-
+            this.transform.position = new Vector3(this.transform.position.x, 0f, this.transform.position.z);
+            if(this.transform.position.x == -1)
+            { 
+                this.GetComponentInChildren<SpriteRenderer>().color = this.GetComponent<ConvertHexToDec>().GetColorfromString("259827");
+            }
+            if (this.transform.position.x == 0)
+            {
+                this.GetComponentInChildren<SpriteRenderer>().color = this.GetComponent<ConvertHexToDec>().GetColorfromString("B9BF22");
+            }
+            if (this.transform.position.x == 1)
+            {
+                this.GetComponentInChildren<SpriteRenderer>().color = this.GetComponent<ConvertHexToDec>().GetColorfromString("B2C323");
+            }
+            if (this.transform.position.x == 2)
+            {
+                this.GetComponentInChildren<SpriteRenderer>().color = this.GetComponent<ConvertHexToDec>().GetColorfromString("B2C323");
+            }
+            if (this.transform.position.x == 3)
+            {
+                this.GetComponentInChildren<SpriteRenderer>().color = this.GetComponent<ConvertHexToDec>().GetColorfromString("B2C323");
+            }
         }
     }
 
@@ -51,7 +70,7 @@ public class Block : MonoBehaviour
     {
         if (c.gameObject.tag == "Player")
         {
-            //Player.instance.GetComponent<ParticleSystem>().enableEmission = false;
+            this.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
         }
     }
     
