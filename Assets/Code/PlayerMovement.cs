@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float platformSize = 3.0f;
 
-    bool egzoControl = true;
+    bool egzoControl = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,29 +20,32 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if(egzoControl == false)
         {
-            Vector3 position = this.transform.position;
-            position.x += 0.5f;
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                Vector3 position = this.transform.position;
+                position.x += 0.5f;
 
-            if (position.x > 2.5f)
-                position.x--;
-            else
+                if (position.x > 2.5f)
+                    position.x--;
+
                 this.transform.position = position;
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                Vector3 position = this.transform.position;
+                position.x -= 0.5f;
+
+                if (position.x < 0f)
+                    position.x++;
+
+                this.transform.position = position;
+
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            Vector3 position = this.transform.position;
-            position.x -= 0.5f;
-
-            if (position.x < 0f)
-                position.x++;
-            else
-                this.transform.position = position;
-
-        }
 
         if (egzoControl == true)
         {
@@ -58,6 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
     float ParseEgzoToLane()
     {
-        return (float)Math.Round(EgzoController.instance.axis.Value * 2,MidpointRounding.AwayFromZero) / 2;
+        return (float)Math.Round(EgzoController.instance.axis.Value * 2, MidpointRounding.AwayFromZero) / 2;
     }
 }
