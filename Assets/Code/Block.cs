@@ -7,41 +7,47 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
 
-    
+
     public float length;
+    public int laneNum;
 
-
+    //Determine front and end of the block
+    public Vector3 front;
+    public Vector3 end;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        front = new Vector3(0, 0, transform.localPosition.z - (length / 2));
+        end = new Vector3(0, 0, transform.localPosition.z + (length / 2));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
     void FixedUpdate()
     {
-        transform.Translate(new Vector3(0,0,-0.1f));
+        transform.Translate(new Vector3(0, 0, -0.1f));
     }
 
 
 
     //Play an animation that is triggered on collision with player object
     void PlayEffect()
-    { 
-    
+    {
+
     }
 
-    void OnTriggerStay(Collider other)
-    { 
 
-        if(other.gameObject.tag == "Player")
+
+    void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.tag == "Player")
         {
             Player.instance.Score++;
             PlayEffect();
