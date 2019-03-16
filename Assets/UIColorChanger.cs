@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// Changes color of UI when block color change occurs
+/// </summary>
 public class UIColorChanger : MonoBehaviour
 {
     [SerializeField]
@@ -11,12 +15,6 @@ public class UIColorChanger : MonoBehaviour
     void Start()
     {
         Block.colorChanged += UpdateColor;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void UpdateColor(Color _c)

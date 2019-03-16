@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// UI utility class
+/// </summary>
 public class MusinOnAndOff : MonoBehaviour
 {
     AudioSource audioSource;

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//Script that generates block that will fall in the board
+/// <summary>
+/// Class that manages generating falling blocks.
+/// </summary>
 public class BoardGen : MonoBehaviour
 {
     [SerializeField]
@@ -38,14 +40,13 @@ public class BoardGen : MonoBehaviour
     {
         //spawn first block in the middle
         GenerateNewBlock(2, Settings.ZSpawn);
-        filter.BlockEntered += UpdateSpawn;
+        filter.BlockExited += UpdateSpawn;
     }
 
     //Generates random block on random lane
     void GenerateNewBlock(int lane_num, float connection_additive)
     {
         Transform lane = laneContainer.transform.GetChild(lane_num);
-
 
         //Then instantiate prefab block and set it's length
         GameObject block = Instantiate(blockPrefab);
@@ -54,7 +55,6 @@ public class BoardGen : MonoBehaviour
         //set block at desired origin point
         block.transform.localPosition = new Vector3(0, 0.3f, connection_additive);
         block.GetComponentInChildren<SpriteRenderer>().sortingOrder = lane_num % 2;
-
 
         //Randomize length of a block
         float length = UnityEngine.Random.Range(min_length, max_length);
@@ -70,7 +70,7 @@ public class BoardGen : MonoBehaviour
         if (b != null)
         {
             //determine lane direction and Connection Additive
-            float connection_additive = b.transform.localPosition.z + UnityEngine.Random.Range(2f, b.GetComponent<Block>().length/2);
+            float connection_additive = b.transform.localPosition.z + UnityEngine.Random.Range(2f, b.GetComponent<Block>().length / 2);
             //two first ifs check border conditions, last one else randomizes driection (middle cases)
             if (b.GetComponent<Block>().laneNum == 0)
             {
@@ -85,7 +85,7 @@ public class BoardGen : MonoBehaviour
             }
             else
             {
-                GenerateNewBlock(b.GetComponent<Block>().laneNum + RandomUtils.GetRandomElement(new List<int>() {-1, 1 }), connection_additive);
+                GenerateNewBlock(b.GetComponent<Block>().laneNum + RandomUtils.GetRandomElement(new List<int>() { -1, 1 }), connection_additive);
             }
 
         }

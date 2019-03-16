@@ -3,22 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// UI utility class - provides function for button, to connect EgzoController to LUNA via IP address
+/// </summary>
 public class AcceptIP : MonoBehaviour
 {
     [SerializeField]
     InputField field;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void Connect()
     {

@@ -3,6 +3,11 @@ using UnityEngine;
 using WebSocketSharp;
 using Newtonsoft.Json;
 
+
+/// <summary>
+/// EgzoTech, Luna controller - uses webSocket to communicate with rehabilitation device, and exchanges the signal
+/// into appropiate values for in game use // DontDestroyOnLoad // Singleton
+/// </summary>
 public class EgzoController : MonoBehaviour
 {
     //singleton

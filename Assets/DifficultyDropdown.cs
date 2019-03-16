@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class that contains difficulty presets, also contains behaviour for dropdown difficulty choosers
+/// </summary>
 public class DifficultyDropdown : MonoBehaviour
 {
     [SerializeField]

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Container class for Lanes
+/// </summary>
 public class LaneContainer : MonoBehaviour
 {
     [SerializeField]

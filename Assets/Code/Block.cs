@@ -4,16 +4,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//script describing behaviour of falling block
+/// <summary>
+/// Class describing behavior of board block
+/// </summary>
 public class Block : MonoBehaviour
 {
 
-
+    /// <summary>
+    /// The length of a block, in units.
+    /// </summary>
     public float length;
+    /// <summary>
+    /// The lane number.
+    /// </summary>
     public int laneNum;
 
     static Color lastColour;
+    /// <summary>
+    /// Occurs when color changed.
+    /// </summary>
     public static event Action<Color> colorChanged;
+    /// <summary>
+    /// Last colour that was encountered by player
+    /// </summary>
+    /// <value>The last colour.</value>
     public static Color LastColour
     {
         get { return lastColour; }
@@ -33,29 +47,10 @@ public class Block : MonoBehaviour
         lightplayer = GameObject.FindGameObjectWithTag("LightPlayer");
     }
 
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
     void FixedUpdate()
     {
         transform.Translate(new Vector3(0, 0, -Settings.speed));
     }
-
-
-
-    //Play an animation that is triggered on collision with player object
-    void PlayEffect()
-    {
-
-    }
-
 
     private void OnTriggerExit(Collider C)
     {
@@ -114,7 +109,6 @@ public class Block : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Player.instance.Score++;
-            PlayEffect();
             Player.instance.GetComponent<ParticleSystem>().Emit(4);
         }
     }

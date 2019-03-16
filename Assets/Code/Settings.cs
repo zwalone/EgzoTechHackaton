@@ -1,10 +1,16 @@
 ﻿using System;
 
 
-//Static class containing gameplay settings
+///<summary>Static class containing gameplay settings</summary>
 public static class Settings
 {
-    public static float speed = 0.1f;
-    public static float ZSpawn = 20f;
+    /// <summary>
+    /// Describes speed of falling blocks
+    /// </summary>
+    public static float speed = 0.03f;
+    /// <summary>
+    /// Describes Z coordinate of block spawn area
+    /// </summary>
+    public static float ZSpawn = 10f;
 }
 

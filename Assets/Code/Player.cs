@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Class that stores player score
-//And UI references
+///<summary>Class that stores player score
+///And UI references
+/// \\
+/// Singleton</summary>
 public class Player : MonoBehaviour
 {
 
@@ -14,6 +16,10 @@ public class Player : MonoBehaviour
     public Text clockText;
 
     float time;
+    /// <summary>
+    /// Gets and sets time, and calls OnTimeUpdate method which will update clockText variable with amount of time left
+    /// </summary>
+    /// <value>The time.</value>
     public float _Time
     { 
         get { return time;  }
@@ -22,6 +28,7 @@ public class Player : MonoBehaviour
     public static float sessionTime;
 
     long score = 0;
+    ///<summary>Score property - Setting it automatically will set the scoreText.text variable to show current score</summary>
     public long Score
     { 
         get { return score; }
@@ -38,11 +45,6 @@ public class Player : MonoBehaviour
         _Time = sessionTime;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void FixedUpdate()
     {
@@ -59,20 +61,20 @@ public class Player : MonoBehaviour
 
     }
 
+    //Updates clock UI
     void OnTimeUpdate()
     {
         if(sessionTime == 0)
         {
             clockText.transform.parent.gameObject.SetActive(false);
         }
-        clockText.text = "Pozostały czas: " + Mathf.RoundToInt(_Time).ToString();
+        clockText.text = "Czas: " + Mathf.RoundToInt(_Time).ToString();
 
     }
 
-
+    //Select glow material and update it's glow color depending on lastest block color
     void OnColorUpdate(Color color)
     {
-        //Select glow material and update it's glow color depending on lastest block color
         gameObject.GetComponent<MeshRenderer>().materials[1].SetColor("_MKGlowColor", color);
     }
 

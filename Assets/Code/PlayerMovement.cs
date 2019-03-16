@@ -3,16 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+/// <summary>
+/// Manages player movement, contains preset for keyboard setup and EgzoTech rehabilitation device
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-
-    private float platformSize = 3.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -49,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
 
 
     float ParseEgzoToLane()

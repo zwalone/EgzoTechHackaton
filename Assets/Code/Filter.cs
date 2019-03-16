@@ -4,10 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//Triggers creation of new blocks
+/// <summary>
+/// Contains trigger behaviour, when Block exits from trigger, this class will call
+/// to generate another block
+/// </summary>
 public class Filter : MonoBehaviour
 {
-    public event Action<Block> BlockEntered;
+    /// <summary>
+    /// Occurs when block entered the trigger field.
+    /// </summary>
+    public event Action<Block> BlockExited;
 
     void Awake()
     {
@@ -21,7 +27,7 @@ public class Filter : MonoBehaviour
     { 
         if(other.tag == "Block")
         {
-            BlockEntered(other.GetComponent<Block>());
+            BlockExited(other.GetComponent<Block>());
         }
     }
 
