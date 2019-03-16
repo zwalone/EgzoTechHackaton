@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1547174387792114305}
   - component: {fileID: 1547174387792114307}
   - component: {fileID: 1547174387792114306}
-  - component: {fileID: 8380296248785164541}
   m_Layer: 0
   m_Name: Block
   m_TagString: Block
@@ -60,18 +59,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.56, y: 0.15, z: 0.53}
   m_Center: {x: 0.03, y: -0.3, z: 0}
---- !u!114 &8380296248785164541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547174387792114304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84092fdb96e287648b0711287b91df88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5908518668421141581
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +128,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ad729acb7a76cc833a4484614a18e615, type: 3}
-  m_Color: {r: 0.08410467, g: 0.3487123, b: 0.6603774, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
