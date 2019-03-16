@@ -9,22 +9,19 @@ public class PlayerMovement : MonoBehaviour
 
     private float platformSize = 3.0f;
 
-    bool egzoControl = false;
+    bool egzoControl = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (EgzoController.instance != null)
-        {
-            egzoControl = true;
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (egzoControl == false)
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             Vector3 position = this.transform.position;
             position.x += 0.5f;
@@ -46,10 +43,13 @@ public class PlayerMovement : MonoBehaviour
                 this.transform.position = position;
 
         }
-        else
-        {
-            transform.position = new Vector3(ParseEgzoToLane(), transform.position.y, transform.position.z);
 
+        if (egzoControl == true)
+        {
+
+
+            //  transform.position = new Vector3(ParseEgzoToLane(), transform.position.y, transform.position.z);
+            transform.position = new Vector3(EgzoController.instance.axis.Value, transform.position.y, transform.position.z);
         }
 
     }

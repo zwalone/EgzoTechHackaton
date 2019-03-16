@@ -22,22 +22,25 @@ public class EgzoController : MonoBehaviour
             axis = new Axis();
 
         }
-     //  EstablishConnection();
+       EstablishConnection();
     }
 
     void EstablishConnection()
     {
 
-        //after connection is established, go and link events
-        socket.OnOpen += OnConnectionOpened;
-        socket.OnClose += OnConnectionClosed;
-        socket.OnError += OnError;
-        socket.OnMessage += OnDataReceived;
+       
 
         if (socket == null)
         {
             socket = new WebSocket("ws://192.168.102.219:1234/bG9zb3NpZQ==");
+            //after connection is established, go and link events
+            socket.OnOpen += OnConnectionOpened;
+            socket.OnClose += OnConnectionClosed;
+            socket.OnError += OnError;
+            socket.OnMessage += OnDataReceived;
         }
+
+
         socket.Connect();
 
 

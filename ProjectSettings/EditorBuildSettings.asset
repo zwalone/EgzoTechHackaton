@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: cc8f33e18eeb393da9cea3d67294989d
+  - enabled: 1
+    path: Assets/Scenes/ChooseTime.unity
+    guid: 217ae50d6640c07e2835dff2dbdb8ceb
   m_configObjects: {}

@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             if(_Time <= 0)
             {
                 //TODO: End game;
-                Debug.LogWarning("ENDDDDD YEEEEEEEEEEE");
+                Application.LoadLevel("MainMenu");
             }
         }
 
@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
             clockText.transform.parent.gameObject.SetActive(false);
         }
         clockText.text = "Pozostały czas: " + Mathf.RoundToInt(_Time).ToString();
+
     }
 
 
