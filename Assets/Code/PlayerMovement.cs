@@ -24,8 +24,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if (egzoControl == false)
-        {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+
+        { 
             Vector3 position = this.transform.position;
             position.x += 0.5f;
 
@@ -46,15 +47,18 @@ public class PlayerMovement : MonoBehaviour
                 this.transform.position = position;
 
         }
-        else
-        {
-            transform.position = new Vector3(ParseEgzoToLane(), transform.position.y, transform.position.z);
+       // if
+       // {
+         //   transform.position = new Vector3(ParseEgzoToLane(), transform.position.y, transform.position.z);
 
-        }
+      //  }
 
     }
 
-
+    private void FixedUpdate()
+    {
+        transform.Rotate(Vector3.right, 1f);
+    }
 
     float ParseEgzoToLane()
     {

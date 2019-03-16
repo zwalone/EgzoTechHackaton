@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Block
+  - ParticlePlayer
+  - LightPlayer
   layers:
   - Default
   - TransparentFX
