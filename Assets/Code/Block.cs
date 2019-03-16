@@ -60,8 +60,7 @@ public class Block : MonoBehaviour
     {
         if (c.gameObject.tag == "Player")
         {
-
-            // this.transform.Find("Representation").position = new Vector3(this.transform.position.x, 0f, this.transform.position.z);
+            
             GetComponent<Animator>().Play("Press");
             if (laneNum == 0)
             {
