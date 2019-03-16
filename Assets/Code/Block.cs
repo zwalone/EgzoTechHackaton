@@ -55,6 +55,7 @@ public class Block : MonoBehaviour
         this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("FFFFFF");
         GetComponent<Animator>().Play("Return");
     }
+
     private void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == "Player")
