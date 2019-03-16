@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 public class EgzoController : MonoBehaviour
 {
-
+    //singleton
     public static EgzoController instance;
     WebSocket socket;
 
@@ -22,11 +22,17 @@ public class EgzoController : MonoBehaviour
             axis = new Axis();
 
         }
-        EstablishConnection();
+     //  EstablishConnection();
     }
 
     void EstablishConnection()
     {
+
+        //after connection is established, go and link events
+        socket.OnOpen += OnConnectionOpened;
+        socket.OnClose += OnConnectionClosed;
+        socket.OnError += OnError;
+        socket.OnMessage += OnDataReceived;
 
         if (socket == null)
         {
@@ -34,10 +40,7 @@ public class EgzoController : MonoBehaviour
         }
         socket.Connect();
 
-        //after connection is established, go and link events
-        socket.OnOpen += OnConnectionOpened;
-        socket.OnClose += OnConnectionClosed;
-        socket.OnMessage += OnDataReceived;
+
     }
 
     void EstablishConnection(string address)
@@ -58,6 +61,13 @@ public class EgzoController : MonoBehaviour
     {
         Debug.Log("Connection closed");
     }
+
+    void OnError(object sender, ErrorEventArgs e)
+    {
+        Debug.Log("Connection error: " + e.Message);
+        socket.Close();
+    }
+
 
     void OnDataReceived(object sender, MessageEventArgs e)
     {

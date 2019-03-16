@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public Text scoreText;
 
 
+    public float time;
+    public static float sessionTime;
 
     long score = 0;
     public long Score
@@ -34,5 +36,20 @@ public class Player : MonoBehaviour
         
     }
 
-    
+    void FixedUpdate()
+    {
+        if(sessionTime != 0)
+        {
+            time += Time.deltaTime;
+            if(time >= sessionTime)
+            {
+                //TODO: End game;
+                Debug.LogWarning("ENDDDDD YEEEEEEEEEEE");
+            }
+        }
+
+
+    }
+
+
 }
