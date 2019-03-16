@@ -6,27 +6,22 @@ using Newtonsoft.Json;
 public class EgzoController : MonoBehaviour
 {
     //singleton
-    public static EgzoController instance;
+    public static EgzoController instance = null;
     public bool alive = false;
-    WebSocket socket;
+    WebSocket socket = null;
 
     //Input value from WebSocketConnection
     public Axis axis;
 
 
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
 
     void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-            axis = new Axis();
-        }
+
+        instance = this;
+        axis = new Axis();
+        DontDestroyOnLoad(this.gameObject);
+
     }
 
     void EstablishConnection()
@@ -45,11 +40,6 @@ public class EgzoController : MonoBehaviour
 
     public void EstablishConnection(string address)
     {
-        if (socket.IsAlive == true)
-        {
-            socket.Close();
-        }
-
         if (socket == null)
         {
             socket = new WebSocket(address);
@@ -64,14 +54,14 @@ public class EgzoController : MonoBehaviour
 
     void OnConnectionClosed(object sender, EventArgs e)
     {
-        Debug.Log("Connection opened");
-        alive = true;
+        Debug.Log("Connection closed");
+        alive = false;
     }
 
     void OnConnectionOpened(object sender, EventArgs e)
     {
-        Debug.Log("Connection closed");
-        alive = false;
+        Debug.Log("Connection opened");
+        alive = true;
     }
 
     void OnError(object sender, ErrorEventArgs e)

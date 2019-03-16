@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AcceptIP : MonoBehaviour
 {
-
+    [SerializeField]
     InputField field;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class AcceptIP : MonoBehaviour
 
     }
 
-    void Connect()
+    public void Connect()
     {
         EgzoController.instance.EstablishConnection(field.text);
     }
