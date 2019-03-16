@@ -16,9 +16,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D))
         {
-
+            GetComponentInParent<Animator>().Play("New Animation");
             Vector3 position = this.transform.position;
             position.x += 1.0f;
             if (position.x > platformSize)
