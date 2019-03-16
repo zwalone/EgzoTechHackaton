@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +12,18 @@ public class Block : MonoBehaviour
     public float length;
     public int laneNum;
 
+    static Color lastColour;
+    public static event Action<Color> colorChanged;
+    public static Color LastColour
+    {
+        get { return lastColour; }
+        set { lastColour = value; colorChanged(lastColour); }
+    }
+
     //Determine front and end of the block
     public Vector3 front;
     public Vector3 end;
+
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +92,7 @@ public class Block : MonoBehaviour
             {
                 this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("CB16BF");
             }
+            lastColour = this.GetComponentInChildren<SpriteRenderer>().color;
         }
     }
 
