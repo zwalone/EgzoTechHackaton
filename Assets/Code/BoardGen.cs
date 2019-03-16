@@ -37,7 +37,7 @@ public class BoardGen : MonoBehaviour
     void Start()
     {
         //spawn first block in the middle
-        GenerateNewBlock(2, 25);
+        GenerateNewBlock(2, Settings.ZSpawn);
         filter.BlockEntered += UpdateSpawn;
     }
 

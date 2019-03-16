@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//Class that stores player score
+//And UI references
 public class Player : MonoBehaviour
 {
 
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
     {
         if(instance == null)
         instance = this;
-
+        Block.colorChanged += OnColorUpdate;
         _Time = sessionTime;
     }
 
@@ -66,6 +67,13 @@ public class Player : MonoBehaviour
         }
         clockText.text = "Pozostały czas: " + Mathf.RoundToInt(_Time).ToString();
 
+    }
+
+
+    void OnColorUpdate(Color color)
+    {
+        //Select glow material and update it's glow color depending on lastest block color
+        gameObject.GetComponent<MeshRenderer>().materials[1].SetColor("_MKGlowColor", color);
     }
 
 

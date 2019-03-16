@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+///Destroys unused instances of blocks that have fallen out of map borders
 public class Destroyer : MonoBehaviour
 {
     // Start is called before the first frame update

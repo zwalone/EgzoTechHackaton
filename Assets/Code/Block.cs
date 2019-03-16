@@ -45,7 +45,7 @@ public class Block : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(new Vector3(0, 0, Settings.speed));
+        transform.Translate(new Vector3(0, 0, -Settings.speed));
     }
 
 

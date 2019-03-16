@@ -14,9 +14,12 @@ public class EgzoController : MonoBehaviour
     public Axis axis;
 
 
-
     void Start()
     {
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+        }
 
         instance = this;
         axis = new Axis();
