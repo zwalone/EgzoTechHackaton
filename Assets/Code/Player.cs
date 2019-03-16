@@ -10,9 +10,14 @@ public class Player : MonoBehaviour
     //====== SINGLETON ======
     public static Player instance = null;
     public Text scoreText;
+    public Text clockText;
 
-
-    public float time;
+    float time;
+    public float _Time
+    { 
+        get { return time;  }
+        set { time = value; OnTimeUpdate(); }
+    }
     public static float sessionTime;
 
     long score = 0;
@@ -28,6 +33,8 @@ public class Player : MonoBehaviour
     {
         if(instance == null)
         instance = this;
+
+        _Time = sessionTime;
     }
 
     // Update is called once per frame
@@ -40,8 +47,8 @@ public class Player : MonoBehaviour
     {
         if(sessionTime != 0)
         {
-            time += Time.deltaTime;
-            if(time >= sessionTime)
+            _Time -= Time.deltaTime;
+            if(_Time <= 0)
             {
                 //TODO: End game;
                 Debug.LogWarning("ENDDDDD YEEEEEEEEEEE");
@@ -49,6 +56,15 @@ public class Player : MonoBehaviour
         }
 
 
+    }
+
+    void OnTimeUpdate()
+    {
+        if(sessionTime == 0)
+        {
+            clockText.transform.parent.gameObject.SetActive(false);
+        }
+        clockText.text = "Pozostały czas: " + Mathf.RoundToInt(_Time).ToString();
     }
 
 
