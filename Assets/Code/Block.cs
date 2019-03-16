@@ -24,12 +24,13 @@ public class Block : MonoBehaviour
     public Vector3 front;
     public Vector3 end;
 
-
+    private GameObject lightplayer;
     // Start is called before the first frame update
     void Start()
     {
         front = new Vector3(0, 0, transform.localPosition.z - (length / 2));
         end = new Vector3(0, 0, transform.localPosition.z + (length / 2));
+        lightplayer = GameObject.FindGameObjectWithTag("LightPlayer");
     }
 
 
@@ -61,7 +62,8 @@ public class Block : MonoBehaviour
 
     private void OnTriggerExit(Collider C)
     {
-        Player.instance.GetComponentInChildren<Light>().enabled = false;
+        //Player.instance.GetComponentInChildren<Light>().enabled = false;
+        lightplayer.GetComponent<Light>().enabled = false;
         this.transform.Find("Representation").position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);
         this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("FFFFFF");
         GetComponent<Animator>().Play("Return");
@@ -75,32 +77,32 @@ public class Block : MonoBehaviour
             GetComponent<Animator>().Play("Press");
             if (laneNum == 0)
             {
-                Player.instance.GetComponentInChildren<Light>().enabled = true;
-                Player.instance.GetComponentInChildren<Light>().color = ConvertHexToDec.GetColorfromString("07A42E");
+                lightplayer.GetComponent<Light>().enabled = true;
+                lightplayer.GetComponent<Light>().color = ConvertHexToDec.GetColorfromString("07A42E");
                 this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("07A42E");
             }
             if (laneNum == 1)
             {
-                Player.instance.GetComponentInChildren<Light>().enabled = true;
-                Player.instance.GetComponentInChildren<Light>().color = ConvertHexToDec.GetColorfromString("7DA40C");
+                lightplayer.GetComponent<Light>().enabled = true;
+                lightplayer.GetComponent<Light>().color = ConvertHexToDec.GetColorfromString("7DA40C");
                 this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("7DA40C");
             }
             if (laneNum == 2)
             {
-                Player.instance.GetComponentInChildren<Light>().enabled = true;
-                Player.instance.GetComponentInChildren<Light>().color = ConvertHexToDec.GetColorfromString("D76A24");
+                lightplayer.GetComponent<Light>().enabled = true;
+                lightplayer.GetComponent<Light>().color = ConvertHexToDec.GetColorfromString("D76A24");
                 this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("D76A24");
             }
             if (laneNum == 3)
             {
-                Player.instance.GetComponentInChildren<Light>().enabled = true;
-                Player.instance.GetComponentInChildren<Light>().color = ConvertHexToDec.GetColorfromString("D7184B");
+                lightplayer.GetComponent<Light>().enabled = true;
+                lightplayer.GetComponent<Light>().color = ConvertHexToDec.GetColorfromString("D7184B");
                 this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("D7184B");
             }
             if (laneNum == 4)
             {
-                Player.instance.GetComponentInChildren<Light>().enabled = true;
-                Player.instance.GetComponentInChildren<Light>().color = ConvertHexToDec.GetColorfromString("CB16BF");
+                lightplayer.GetComponent<Light>().enabled = true;
+                lightplayer.GetComponent<Light>().color = ConvertHexToDec.GetColorfromString("CB16BF");
                 this.GetComponentInChildren<SpriteRenderer>().color = ConvertHexToDec.GetColorfromString("CB16BF");
             }
             lastColour = this.GetComponentInChildren<SpriteRenderer>().color;
