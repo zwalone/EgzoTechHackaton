@@ -54,6 +54,8 @@ public class BoardGen : MonoBehaviour
         block.GetComponent<Block>().laneNum = lane_num;
         //set block at desired origin point
         block.transform.localPosition = new Vector3(0, 0.3f, connection_additive);
+        block.GetComponentInChildren<SpriteRenderer>().sortingOrder = lane_num % 2;
+
 
         //Randomize length of a block
         float length = UnityEngine.Random.Range(min_length, max_length);
